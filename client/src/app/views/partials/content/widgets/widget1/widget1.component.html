@@ -1,0 +1,30 @@
+<div class="kt-widget1"  *ngIf="requestResult$ | async as _requestResult; else loading">
+	<div *ngIf="_requestResult.length > 0">
+		<ng-container *ngFor="let item of _requestResult">
+			<ng-container [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-container>
+		</ng-container>
+	</div>
+	<div *ngIf="_requestResult.length == 0">
+		<div class="kt-widget1__item">
+			<div class="kt-widget1__info">
+				<h3 class="kt-widget1__title">Sorry you don't have any active investments with us. You can enquiure by visiting your dashboard</h3>
+			</div>
+		</div>
+	</div>
+</div>
+<ng-template #loading>
+	<div class="kt-widget1__item" style="justify-content: center;">
+		<mat-spinner></mat-spinner>
+	</div>
+</ng-template>
+
+<ng-template #itemTemplate let-item="item">
+	<div class="kt-widget1__item">
+		<div class="kt-widget1__info">
+			<h3 class="kt-widget1__title">{{item.bankId.type}}</h3>
+			<span class="kt-widget1__desc">{{item.bankId.topic}}</span>
+		</div>
+		<!-- <button class="kt-widget1__number" [ngClass]="item.valueClass" class="btn btn-primary btn-elevate kt-login__btn-primary">{{item.value}}</button> -->
+		<button class="kt-widget1__number"class="btn btn-primary btn-elevate kt-login__btn-primary">{{format.format(item.equity)}}</button>
+	</div>
+</ng-template>

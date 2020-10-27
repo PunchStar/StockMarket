@@ -1,0 +1,91 @@
+<!--begin::Form-->
+<form [formGroup]="employmentForm" class="kt-form kt-form--group-seperator-dashed">
+
+	<kt-alert *ngIf="hasFormErrors" type="warn" [showCloseButton]="true" [duration]="10000" (close)="onAlertClose($event)">
+		Oh snap! Change a few things up and try submitting again.
+	</kt-alert>
+	<div class="kt-form__section kt-form__section--first">
+		<div class="form-group kt-form__group row">
+			<div class="col-lg-4 kt-margin-bottom-20-mobile">
+				<mat-form-field>
+					<mat-select placeholder="Employment Status" name="employmentStatus" formControlName="employmentStatus" (selectionChange)="changeEmployment($event.value)">
+						<!-- <mat-option>asd</mat-option> -->
+						<mat-option value="">Select</mat-option>
+						<mat-option value="Employed">Employed</mat-option>
+						<mat-option value="Self-employed">Self-employed</mat-option>
+						<mat-option value="Retired">Retired</mat-option>
+						<mat-option value="Other">Other</mat-option>
+					  </mat-select>
+				</mat-form-field>
+			</div>
+			<!-- <div class="col-lg-4 kt-margin-bottom-20-mobile">
+				<mat-form-field class="mat-form-field-fluid">
+					<input matInput placeholder="Enter Postode" formControlName="postCode" />
+					<mat-error>Postcode is
+						<strong>required</strong>
+					</mat-error>
+					<mat-hint align="start">Please enter
+						<strong>Postcode</strong>
+					</mat-hint>
+				</mat-form-field>
+			</div> -->
+		</div>
+		<div class="form-group kt-form__group row" *ngIf="selectedEm == 'Employed'">
+			<div class="col-lg-4 kt-margin-bottom-20-mobile">
+				<mat-form-field class="mat-form-field-fluid">
+					<input matInput placeholder="Name of Employer" formControlName="nameEmployer" />
+					<mat-error>Name of Employer is
+						<strong>required</strong>
+					</mat-error>
+					<mat-hint align="start">Please enter
+						<strong>Name of Employer</strong>
+					</mat-hint>
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="form-group kt-form__group row"*ngIf="selectedEm == 'Self-employed'">
+			<div class="col-lg-4 kt-margin-bottom-20-mobile">
+				<mat-form-field class="mat-form-field-fluid">
+					<input matInput placeholder="Name of Company" formControlName="nameCompanyEm" />
+					<mat-error>Name of Company is
+						<strong>required</strong>
+					</mat-error>
+					<mat-hint align="start">Please enter
+						<strong>Name of Company</strong>
+					</mat-hint>
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="form-group kt-form__group row">
+			<div class="col-lg-4 kt-margin-bottom-20-mobile">
+				<mat-form-field>
+					<mat-select placeholder="Investment Knowledge" name="investmentKnowledge" formControlName="investmentKnowledge">
+						<!-- <mat-option>asd</mat-option> -->
+						<mat-option value="">Select</mat-option>
+						<mat-option value="Advanced">Advanced</mat-option>
+						<mat-option value="Intermediate">Intermediate</mat-option>
+						<mat-option value="Beginner">Beginner</mat-option>
+					  </mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col-lg-4 kt-margin-bottom-20-mobile">
+				<mat-form-field>
+					<mat-select placeholder="Net Worth" name="netWorth" formControlName="netWorth">
+						<mat-option value="">Select</mat-option>
+						<mat-option value="£25,000 - £50,000">£25,000 - £50,000</mat-option>
+						<mat-option value="£50,000 - £100,000">£50,000 - £100,000</mat-option>
+						<mat-option value="£100,000 - £250,000">£100,000 - £250,000</mat-option>
+						<mat-option value="£250,000 - £500,000">£250,000 - £500,000</mat-option>
+						<mat-option value="£500,000 - £1,000,000">£500,000 - £1,000,000</mat-option>
+						<mat-option value="£1,000,000 - £5,000,000">£1,000,000 - £5,000,000</mat-option>
+						<mat-option value="£5,000,000 +">£5,000,000 +</mat-option>
+					  </mat-select>
+				</mat-form-field>
+			</div>
+		</div>
+		<div class="form-group kt-form__group row">
+			
+		</div>
+	</div>
+</form>
+<!--end::Form-->

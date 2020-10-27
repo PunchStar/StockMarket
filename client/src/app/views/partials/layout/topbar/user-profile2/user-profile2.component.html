@@ -1,0 +1,11 @@
+<div ngbDropdown placement="bottom-right" *ngIf="user$ | async as _user" class="kt-header__topbar-item kt-header__topbar-item--user">
+	<div ngbDropdownToggle class="kt-header__topbar-wrapper" *ngIf="_user.roles[0] == 2">
+		<span class="kt-header__topbar-welcome" *ngIf="greeting">Total Equity :      </span>
+		<!-- <span class="kt-header__topbar-icon" style="background-color: transparent;height: 24px;width: 24px;"> -->
+			<!-- <i class="fas fa-pound-sign"></i> -->
+		<!-- </span> -->
+		<!-- <span class="kt-header__topbar-username" *ngIf="greeting">{{_user.totalEquity}}</span> -->
+		<!-- <span class="kt-header__topbar-username" *ngIf="greeting">{{_user.totalEquity.toLocalString("en-GB",myObj)}}</span> -->
+		<span class="kt-header__topbar-username" *ngIf="greeting">{{format.format(_user.totalEquity)}}</span>
+	</div>
+</div>

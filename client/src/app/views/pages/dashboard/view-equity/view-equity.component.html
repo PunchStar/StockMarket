@@ -1,0 +1,198 @@
+<div class="kt-portlet">
+	<div class="kt-portlet__head kt-portlet__head__custom">
+		<div class="kt-portlet__head-label">
+			<h3 class="kt-portlet__head-title">{{getTitle()}}</h3>
+		</div>
+	</div>
+	<div class="kt-portlet__body"style="max-height: 90vh!important">
+			<div class="kt-form__section kt-form__section--first" >
+				<div class="kt-form__group">
+					<div class="row">
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Type</span>
+								<span class="kt-widget12__value">{{customer.type}}</span>
+							</div>
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<mat-select placeholder="Select your Type" formControlName="type">
+									<mat-option value="Bond">Bond</mat-option>
+									<mat-option value="Gilt">Gilt</mat-option>
+									<mat-option value="Fund">Fund</mat-option>
+								</mat-select>
+							</mat-form-field> -->
+						</div>
+					</div>
+				</div>
+				<div class="kt-separator kt-separator--dashed"></div>
+				<div class="kt-form__group">
+					<div class="row">
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput placeholder="Enter ISIN" formControlName="ISIN">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">ISIN</span>
+								<span class="kt-widget12__value">{{customer.ISIN}}</span>
+							</div>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput placeholder="Enter Issuer" formControlName="Issuer">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Issuer</span>
+								<span class="kt-widget12__value">{{customer.Issuer}}</span>
+							</div>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput  type='number'placeholder="Enter Issuer" formControlName="IssueVolume">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Issue Volume</span>
+								<span class="kt-widget12__value">{{customer.IssueVolume | number :'2.0'}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="kt-separator kt-separator--dashed"></div>
+				<div class="kt-form__group">
+					<div class="row">
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<mat-select placeholder="Currency" formControlName="Currency">
+									<mat-option value="GBP">British Pound (GBP)</mat-option>
+									<mat-option value="USD">US Dollar (USD)</mat-option>
+									<mat-option value="EUR">Euro (EUR)</mat-option>
+									<mat-option value="CAD">Canadian Dollar (CAD)</mat-option>
+									<mat-option value="AUD">Australian Dollar (AUD)</mat-option>
+								</mat-select>
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Currency</span>
+								<span class="kt-widget12__value">{{customer.Currency}}</span>
+							</div>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput type='number'placeholder="Issue Price" formControlName="IssuePrice">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Issue Price</span>
+								<span class="kt-widget12__value">{{customer.IssuePrice| number :'2.0'}}</span>
+							</div>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput type='date' placeholder="Issue Date" formControlName="IssueDate" value="{{ product.IssueDate | date:'yyyy-MM-dd' }}">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Issue Date</span>
+								<span class="kt-widget12__value">{{customer.IssueDate | date:'yyyy-MM-dd' }}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="kt-separator kt-separator--dashed"></div>
+				<div class="kt-form__group">
+					<div class="row">
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput type="number" step="0.01" min="0" max="100" placeholder="Enter Coupon (%)" formControlName="Coupon">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Coupon</span>
+								<span class="kt-widget12__value">{{customer.Coupon| number :'2.2'}} %</span>
+							</div>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput type="number" placeholder="Enter Denomination" formControlName="Denomination">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Denomination</span>
+								<span class="kt-widget12__value">{{customer.Denomination| number :'2.0'}}</span>
+							</div>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput placeholder="Enter Payment Type" formControlName="PaymentType">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Payment Type</span>
+								<span class="kt-widget12__value">{{customer.PaymentType}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="kt-separator kt-separator--dashed"></div>
+				<div class="kt-form__group">
+					<div class="row">
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput type="date" placeholder="Enter Maturity Date" formControlName="MaturityDate" value="{{ product.MaturityDate | date:'yyyy-MM-dd' }}">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Maturity Date</span>
+								<span class="kt-widget12__value">{{customer.MaturityDate | date:'yyyy-MM-dd' }}</span>
+							</div>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput type="date" placeholder="Coupon Payment Date" formControlName="CouponPaymentDate" value="{{ product.CouponPaymentDate | date:'yyyy-MM-dd' }}">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Coupon Payment Date</span>
+								<span class="kt-widget12__value">{{ customer.CouponPaymentDate | date:'yyyy-MM-dd' }}</span>
+							</div>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput type="date" placeholder="Coupon Start Date" formControlName="CouponStartDate" value="{{ product.CouponStartDate | date:'yyyy-MM-dd' }}">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Coupon Start Date</span>
+								<span class="kt-widget12__value">{{customer.CouponStartDate | date:'yyyy-MM-dd' }}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="kt-separator kt-separator--dashed"></div>
+				<div class="kt-form__group">
+					<div class="row">
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput type="date" placeholder="Enter Final Coupon Date" formControlName="FinalCouponDate" value="{{ product.FinalCouponDate | date:'yyyy-MM-dd' }}">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Final Coupon Date</span>
+								<span class="kt-widget12__value">{{customer.FinalCouponDate | date:'yyyy-MM-dd' }}</span>
+							</div>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+							<!-- <mat-form-field class="mat-form-field-fluid">
+								<input matInput placeholder="Enter Floater" formControlName="Floater">
+							</mat-form-field> -->
+							<div class="kt-widget12__info">
+								<span class="kt-widget12__desc">Floater</span>
+								<span class="kt-widget12__value">{{customer.Floater}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="kt-portlet__foot kt-portlet__no-border kt-portlet__foot--fit">
+		<div class="kt-form__actions kt-form__actions--solid">
+			<div class="row text-right">
+				<div class="col-lg-4 col-md-4"></div>
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<button type="button" style="margin:20px 0px;width: 90%;" class="btn btn-primary" [mat-dialog-close]="data.animal" cdkFocusInitial matTooltip="Cancel changes">
+						Cancel
+					</button>
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

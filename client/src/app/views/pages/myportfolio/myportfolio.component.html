@@ -1,0 +1,21 @@
+<div class="row"  *ngIf="user$ | async as _user">
+	<div class="col-xl-12">
+		<kt-portlet [class]="'kt-portlet--height-fluid'">
+			<kt-portlet-header [title]="'MY PORTFOLIO'" style="color: white;">
+				
+			</kt-portlet-header>
+			<kt-portlet-body>
+					<kt-widget1  [userId]="_user._id"></kt-widget1>
+			</kt-portlet-body>
+		</kt-portlet>
+	</div>
+
+
+</div> 
+
+<div class="row">
+	<div class="col-xl-5 col-sm-4"></div>
+	<div class="col-xl-2 col-sm-4">
+		<a [routerLink]="['/dashboard']" class="btn btn-outline-primary btn-elevate kt-login__btn-primary" style="width: 100%">Return to Dashboard</a>
+	</div>
+</div>

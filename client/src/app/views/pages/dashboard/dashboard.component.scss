@@ -1,0 +1,114 @@
+:host {
+	::ng-deep {
+		ngb-tabset > .nav-tabs {
+			display: none;
+		}
+	}
+}
+.example-container {
+	display: flex;
+	flex-direction: column;
+	min-width: 300px;
+  }
+  .example-header {
+	min-height: 64px;
+	padding: 8px 24px 0;
+  }
+  .mat-form-field {
+	font-size: 14px;
+	width: 100%;
+  }
+  .mat-table {
+	overflow: auto;
+	max-height: 500px;
+  }
+  .mat-tab-body-content{
+	  padding-top: 0px!important;
+  }
+  /* Structure */
+.example-container {
+	position: relative;
+	min-height: 200px;
+  }
+  
+.example-table-container {
+	position: relative;
+	max-height: 400px;
+	overflow: auto;
+  }
+  
+  table {
+	width: 100%;
+  }
+  .mat-column-COMPANY {
+	word-wrap: break-word !important;
+	white-space: unset !important;
+	flex: 0 0 45% !important;
+	width: 45% !important;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+  
+	word-break: break-word;
+  
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+  }
+  
+  .mat-column-PRICE {
+	word-wrap: break-word !important;
+	white-space: unset !important;
+	flex: 0 0 15% !important;
+	width: 15% !important;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+  
+	word-break: break-word;
+  
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+  }
+  
+  .mat-column-LOW {
+	word-wrap: break-word !important;
+	white-space: unset !important;
+	flex: 0 0 15% !important;
+	width: 15% !important;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+  
+	word-break: break-word;
+  
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+  }
+  
+  .mat-column-HIGH {
+	word-wrap: break-word !important;
+	white-space: unset !important;
+	flex: 0 0 15% !important;
+	width: 15% !important;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+  
+	word-break: break-word;
+  
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+  }
+  
+  .mat-column-ACTIONS {
+	word-wrap: break-word !important;
+	white-space: unset !important;
+	flex: 0 0 10% !important;
+	width: 10% !important;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+  }
