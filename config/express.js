@@ -31,7 +31,7 @@ module.exports = () => {
     {
         // CORS rquests
         app.use("/", (req, res, next) => {
-            res.header("Access-Control-Allow-Origin", "https://fierce-springs-34587.herokuapp.com/");
+            res.header("Access-Control-Allow-Origin", "https://stock-market-good.herokuapp.com/");
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With,Content-Type, Accept, Authorization");
             next();
         });
