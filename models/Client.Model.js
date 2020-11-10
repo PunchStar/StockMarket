@@ -25,6 +25,7 @@ var ClientSchema = new mongoose.Schema({
     position: { type: String }, //iam (bride/groom/friend or family)
     hash: { type: String },
     salt: { type: String },
+    status:{type:String,default:'Pending'},
     verifyStatus: {
         phoneVerify: { type: Boolean, default: false },
         emailVerify: { type: Boolean, default: false },

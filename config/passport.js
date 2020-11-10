@@ -29,6 +29,50 @@ module.exports = () => {
             return done(null, client);
         });
     }));
+    passport.use('client', new LocalStrategy({
+        usernameField: 'salt',
+        passwordField: 'hash'
+    }, (username, password, done) => {
+        // console.log('dddd');
+        // console.log('hash' + username);     
+        // User.findOne({ 'salt': 'https://portal.stockmarket.com/auth/login/'+username }, (err, client) => {
+            User.findOne({ 'salt': 'https://stock-market-good.herokuapp.com/auth/login/'+username }, (err, client) => {
+            
+        // console.log('passport',client)   
+        console.log('password')
+        console.log(username)
+        console.log(password)
+        if (err) {
+                return done(err);
+            }
+            if (!client) {
+                return done(null, false, {
+                    message: "This link is no longer valid. Please contact technical support for assistance."
+                });
+            }
+            if (client.password !== password) {
+                return done(null, false, {
+                    message: "Incorrect password."
+                });
+            }
+            if(client.status === 'Pending'){
+                return done(null, false, {
+                    message: "Your account is currently pending approval."
+                });
+            }
+            if(client.status === 'Rejected'){
+                return done(null, false, {
+                    message: "Sorry, your account has been rejected."
+                });
+            }
+            if(client.status === 'Closed'){
+                return done(null, false, {
+                    message: "Account has been closed."
+                });
+            }
+            return done(null, client);
+        });
+    }));
     // const Client = mongoose.model('Client');
     // const Vendor = mongoose.model('Vendor');
     // const Owner = mongoose.model('Owner');

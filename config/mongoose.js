@@ -1,8 +1,8 @@
 module.exports = () => {
     // require('../models/Client.Model');
     require('../models/User.Model');
-    require('../models/Requests.Model');
     require('../models/Bank.Model');
+    require('../models/Requests.Model');
     require('../models/Addfiles.Model');
     // require('../models/Owner.Model');
     // require('../models/Vendor');

@@ -34,6 +34,7 @@ var UserSchema = new mongoose.Schema({
     },
     hash: { type: String },
     salt: { type: String },
+    status:{type:String,default:'Pending'},
     // verifyStatus: {
     //     phoneVerify: { type: Boolean, default: false },
     //     emailVerify: { type: Boolean, default: false },

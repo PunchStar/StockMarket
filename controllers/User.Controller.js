@@ -12,8 +12,10 @@ let transporter = nodemailer.createTransport({
     secure: false,
     port: 25,
     auth: {
-        user: 'ghostatlas@protonmail.com',
-        pass: 'QoYZ5d43K4@m1H2Ma'
+        user: 'fujingforward@gmail.com',
+        pass: 'Forward@1998727'
+        // user: 'ghostatlas@protonmail.com',
+        // pass: 'QoYZ5d43K4@m1H2Ma'
     },
     tls: {
         rejectUnauthorized: false
@@ -35,12 +37,12 @@ exports.register = (req, res) => {
             client.accessToken = 'access-token-' + Math.random();
             client.refreshToken = 'access-token-' + Math.random();
             client.pic = './assets/media/users/default.jpg';
-            if(req.body.hash){
-                client.setPassword(req.body.hash);
-            }
-            else{
-                client.setPassword('123456');
-            }
+            // if(req.body.hash){
+            //     client.setPassword(req.body.hash);
+            // }
+            // else{
+            //     client.setPassword('123456');
+            // }
             User.countDocuments({}, function(err, c) {
                 console.log('location count document')
                 client.id = c + 1;
@@ -49,6 +51,37 @@ exports.register = (req, res) => {
                         res.status(500).json(err);
                     } else {
                         console.log(client);
+                        let HelperOptions = {
+                            from: 'System Notification',
+                            to: 'superpunch727@gmail.com',
+                            subject: 'New Pending User Registration - ' + client.firstName + ' ' + client.lastName,
+                            html: `
+                                <h3>A new user has created an account on ${new Date().toDateString()} </h3>
+                                <p>Please review the details below:</p>
+                                <h3>Account Type: ${client.accountType}</h3>
+                                <h3>First Name: ${client.firstName}</h3>
+                                <h3>Last Name: ${client.lastName}</h3>
+                                <h3>Email Address: ${client.emailAddress}</h3>
+                                <h3>Phone Number: ${client.phoneNumber}</h3>
+                                <h3>Country of Citizenship: ${client.countryCitizenship}</h3>
+                                <h3>Net Worth: ${client.netWorth}</h3>
+                                <p> If you do not request a password reset. please ignore this email or reply to let us know . This password is only valid for the next 30 minutes</p>`,
+                        };
+                        transporter.sendMail(HelperOptions, (error, info) => {
+                            if (error) {
+                                console.log(error);
+                                return res.status(401).json(error)
+                            } else {
+                                // client.save().then(user1 => {
+                                //     res.json('password updated!');
+                                // })
+                                // .catch(err => {
+                                //     res.status(400).send("Update not possible");
+                                // });
+                                return res.status(200).json(client);
+                            }
+                            // console.log('bbb');
+                        })
                         // const token = client.generateJwt();
                         res.status(200).json(client)
                         // res.status(200).json("Registered successfully");
@@ -149,14 +182,24 @@ exports.userToken = (req, res) =>{
 }
 exports.login = (req, res) => {
     console.log('login1');
-    if (!req.body.emailAddress || !req.body.hash) {
+    console.log(req.body)
+    if ((!req.body.emailAddress && req.body.salt == '') || (!req.body.hash )) {
         return res.status(400).json(req.body.emailAddress);
     }
+    // if (!req.body.emailAddress || !req.body.hash) {
+    //     return res.status(400).json(req.body.emailAddress);
+    // }
     // console.log(req)
     console.log('login2');
-    passport.authenticate("user", (err, client, info) => {
+    var temp = 'user';
+    if(req.body.salt != '')
+        temp = 'client';
+    passport.authenticate(temp, (err, client, info) => {
         console.log(client);
         let token;
+
+        console.log('-info-',info)
+        console.log('-info-',err)
         if (err) {
             console.log('err');
             return res.status(200).json(false);
@@ -167,7 +210,7 @@ exports.login = (req, res) => {
             res.status(200).json(client );
         } else {
             console.log('login3');
-            res.status(200).json(false);
+            res.status(200).json(info);
         }
     })(req, res);
 };
@@ -225,15 +268,15 @@ exports.update = (req, res) => {
                 res.status(404).send("data is not found");
             else
             {
-                tempPass = client.hash;
+                // tempPass = client.hash;
                 Object.assign(client, req.body);
             }   
             console.log(client);
             console.log(req.body);
-            if(req.body.hash != '')
-                client.setPassword(req.body.hash);
-            else
-                client.hash = tempPass;
+            // if(req.body.hash != '')
+            //     client.setPassword(req.body.hash);
+            // else
+            //     client.hash = tempPass;
             client.save().then(client => {
                     res.json('client updated!');
                 })

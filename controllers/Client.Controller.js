@@ -37,7 +37,6 @@ exports.register = (req, res) => {
             }
             else{
                 client.setPassword('123456');
-
             }
             User.countDocuments({}, function(err, c) {
                 console.log('location count document')
@@ -47,9 +46,7 @@ exports.register = (req, res) => {
                         res.status(500).json(err);
                     } else {
                         console.log(client);
-                        // const token = client.generateJwt();
                         res.status(200).json(client)
-                        // res.status(200).json("Registered successfully");
                     }
                 });
             })
@@ -147,12 +144,16 @@ exports.userToken = (req, res) =>{
 }
 exports.login = (req, res) => {
     console.log('login1');
-    if (!req.body.emailAddress || !req.body.hash) {
+    console.log(req.body)
+    if ((!req.body.emailAddress && req.body.salt == '') || (!req.body.hash )) {
         return res.status(400).json(req.body.emailAddress);
     }
     // console.log(req)
     console.log('login2');
-    passport.authenticate("user", (err, client, info) => {
+    var temp = 'user';
+    if(req.body.salt != '')
+        temp = 'client';
+    passport.authenticate(temp, (err, client, info) => {
         console.log(client);
         let token;
         if (err) {
@@ -224,7 +225,7 @@ exports.update = (req, res) => {
                 Object.assign(client, req.body);
             console.log(client);
             console.log(req.body);
-            client.setPassword(req.body.hash);
+            // client.setPassword(req.body.hash);
             client.save().then(client => {
                     res.json('client updated!');
                 })
@@ -239,7 +240,7 @@ exports.update = (req, res) => {
                     res.status(404).send("data is not found");
                 else
                     Object.assign(client, req.body);
-                client.setPassword(req.body.hash);
+                // client.setPassword(req.body.hash);
                 client.save().then(client => {
                         res.json('client updated!');
                     })
@@ -263,10 +264,10 @@ exports.updateProfile = (req, res) => {
             res.status(404).send("data is not found");
         else
             Object.assign(client, req.body);
-    console.log(req.body.hash)
+    // console.log(req.body.hash)
 
-            if(req.body.hash)
-               client.setPassword(req.body.hash);
+    //         if(req.body.hash)
+    //            client.setPassword(req.body.hash);
         client.save().then(client => {
                 res.status(200).json(client);
             })
